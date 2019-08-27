@@ -80,5 +80,40 @@ export function f() {
 // 格式化时间
 
 // 设置localStorage
+export function setLocalStorage(name, setObj) {
+    try {
+        window.localStorage.setItem(name, JSON.stringify(setObj));
+        return true
+    } catch (error) {
+        return false
+    }
+}
 
-// 移除localStorage
+// 获取localStorage
+export function getLocalStorage(name) {
+    try {
+        return JSON.parse(window.localStorage.getItem(name));
+    } catch (error) {
+        return false;
+    }
+}
+
+// 清除特定localStorage
+export function removeLocalStorage(name) {
+    try {
+        window.localStorage.removeItem(name);
+        return true
+    } catch (error) {
+        return false;
+    }
+}
+
+// 移除全部localStorage
+export function clearLocalStorage() {
+    try {
+        window.localStorage.clear();
+        return true
+    } catch (error) {
+        return false;
+    }
+}
